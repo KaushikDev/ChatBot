@@ -15,7 +15,7 @@ $("document").ready(function(){
 const signinGoogle = document.getElementById("googleAuth");
 const signout = document.getElementById("signout");
  
- 
+ //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
  	if(signinGoogle){
 		 googleAuth.addEventListener('click', e=>{
 			firebase.auth().signInWithPopup(new firebase.auth.GoogleAuthProvider()).then(function(result) {	 
@@ -38,17 +38,29 @@ const signout = document.getElementById("signout");
 		 });
 		
 		}
- 
+ //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
  		if(signout){
              signout.addEventListener('click', e=>{
 		  
 			 promise = firebase.auth().signOut().then(function(){
 				if(confirm("Do you wish to leave?")){
-				 window.location.href = "/FirebaseTODOapp/index.html";
+				 window.location.href = "/ChatBot/index.html";
 			 }	
 					 });
 		      promise.catch(e => 
 	                console.log(e.message))
 			});
 		 }
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+	firebase.auth().onAuthStateChanged(function(user){
+	  if(user){
+	  window.location.href = "/ChatBot/main.html";
+                }
+		else
+		{
+		console.log(user+" is not logged in");
+		}
+		
+		});		  
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 });
