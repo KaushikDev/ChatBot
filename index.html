@@ -1,61 +1,79 @@
-
 <html>
-<head>
+ <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Login</title>
+<title>ChatBot</title>
     <script src="https://www.gstatic.com/firebasejs/3.6.4/firebase.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://raw.githubusercontent.com/daneden/animate.css/master/animate.min.css">
 	<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
-</head>
-<body>
-
+    <!-- Material Design Lite -->
+    <script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <!-- Material Design icon font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  </head>
+  <body style="background-color:black;">
+<!-- Wide card with share menu button -->
 <style>
-body{
-background-color:black;
+.demo-card-wide.mdl-card {
+  width: 100%;
+
+
+}
+.demo-card-wide > .mdl-card__title {
+  color: #fff;
+  height: 50%;
+  background: url('C:/Users/Piyush/Desktop/welcome_card.jpg') center / cover;
+
+}
+.demo-card-wide > .mdl-card__menu {
+  color: #fff;
 }
 
-div #anim{
-width: 100%;
-height:50%;	
+.demo-card-wide > .mdl-card__supporting-text {
+  color: #000000;
+  font-style:bold;
 }
-	
-h1{
-margin-top:5px;
-font-style:solid;
-color:white;
-margin-bottom:20px;
-font-family:Lobster;
-}
-	
-button{
+
+#index div{
 margin-top:20px;
-width:auto;
+
 }
-	
 </style>
-<!-- This section is for Sign In Form -->
 
-<div id="index" class="container text-center">
-<h1 style="color:white;">ChatThemUp</h1>
+<div class="demo-card-wide mdl-card mdl-shadow--2dp">
+  <div class="mdl-card__title">
+    <h2 class="mdl-card__title-text">Welcome, I'm ChatBot!</h2>
+  </div>
+  <div class="mdl-card__supporting-text">
+    Secure*Fast*Easy*Light*Smooth*Mobile*Desktop*Chat
+  </div>
 
-<div id="anim">
-<canvas id="canvas" width=window.innerWidth height=window.innerHeight></canvas>
+  <div class="mdl-card__menu">
+    <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+      <i class="material-icons">share</i>
+    </button>
+  </div>
 </div>
 
-<button class="btn btn-lg btn-secondary btn-action" id="googleAuth">Use Google Authentication</button>
 
+<div id="index" class="container text-center">
+<div class="row text-center">
+ <div class="col-xs-12">
+<button class="btn btn-lg btn-secondary btn-action" id="googleAuth" style="font-size:25px;">lo<i class="fa fa-google-plus-official"style="color:red;"></i>in</button>
+</div>
+</div>
 	
-	<div class="row text-center" style="margin-top:50px;">
+	<div class="row text-center">
                 <div class="col-xs-12">
-		<a id="fb" class="btn btn-default text-center" style="background-color:transparent;border-color:transparent;" href="https://www.facebook.com/sharer/sharer.php?u=https://KaushikDev.github.io/chatThemUp" target="_blank"><i class="fa fa-facebook" aria-hidden="true" style="color:white;font-size:30px;font-weight:bold;"></i></a>
-                <a id="whatsapp" class="btn btn-default text-center" style="background-color:transparent;border-color:transparent;" href="whatsapp://send?text=https://KaushikDev.github.io/chatThemUp"><i class="fa fa-whatsapp" aria-hidden="true" style="color:white;font-size:30px;font-weight:bold;"></i></a>
-        	<a id="tweet" class="btn btn-default text-center" style="background-color:transparent;border-color:transparent;" href="https://twitter.com/home?status=https://KaushikDev.github.io/chatThemUp" target="_blank"><i class="fa fa-twitter" aria-hidden="true" style="color:white;font-size:30px;font-weight:bold;"></i></a>
+		<a id="fb" class="btn btn-default text-center" style="background-color:transparent;border-color:transparent;" href="https://www.facebook.com/sharer/sharer.php?u=https://KaushikDev.github.io/ChatBot" target="_blank"><i class="fa fa-facebook" aria-hidden="true" style="color:white;font-size:30px;font-weight:bold;"></i></a>
+                <a id="whatsapp" class="btn btn-default text-center" style="background-color:transparent;border-color:transparent;" href="whatsapp://send?text=https://KaushikDev.github.io/ChatBot"><i class="fa fa-whatsapp" aria-hidden="true" style="color:white;font-size:30px;font-weight:bold;"></i></a>
+        	<a id="tweet" class="btn btn-default text-center" style="background-color:transparent;border-color:transparent;" href="https://twitter.com/home?status=https://KaushikDev.github.io/ChatBot" target="_blank"><i class="fa fa-twitter" aria-hidden="true" style="color:white;font-size:30px;font-weight:bold;"></i></a>
                 </div>
         </div>
- <div class="row text-center" style="margin-top:10px;">
+ <div class="row text-center">
 <div class="col-xs-12">
 
 <p style="color:white;font-style:normal"><i class="fa fa-copyright" aria-hidden="true"></i>KaushikCodeArts : App by Piyush Kaushik</p>
@@ -63,76 +81,5 @@ width:auto;
 </div>
 </div>
 </div>
-
-<script type="text/javascript">
-window.onload = function(){
-      var canvas = document.createElement("canvas");
-	var div = document.getElementById("anim");
-      c = canvas.getContext("2d"),
-	  particles ={},
-	  particleIndex = 0,
-	  particleNum  = 10;
-        
-	   canvas.height = window.innerHeight;
-	   canvas.width = window.innerWidth;
-       
-	  div.appendChild(canvas);
-	   
-	   c.fillStyle = "black";
-	   c.fillRect(0, 0, canvas.width, canvas.height);
-	   
-	   
-	   function Particle(){
-	   this.x = canvas.width/2;
-	   this.y = canvas.height/2;
-	   this.vx = Math.random() * 10 - 5;
-	   this.vy = Math.random() * 10 - 5 ;
-	   this.gravity  = 0.11;
-	   particleIndex++;
-	   particles[particleIndex] =  this;
-	   this.id = particleIndex;
-	   this.life  = 0;
-	   this.maxLife = Math.random() * 30 + 30;
-	   this.color  = "hsl("+parseInt(Math.random() * 360, 10) + ",  100%, 50%)";
-	     }
-		 
-		 
-		 Particle.prototype.draw = function(){
-		 this.x += this.vx;
-		 this.y += this.vy;
-		 //this.vy += this.gravity; 
-		 this.life++;
-		 if(this.life >= this.maxLife){
-		 delete particles[this.id];
-		 }
-		 c.fillStyle = this.color ;
-		 c.fillRect(this.x, this.y, 5, 5);
-		 
-		 }
-          
-		  
-		  for(var i=0; i<particleNum ; i++){
-          new Particle();
-		  }
-		  
-		  
-		  setInterval(function(){
-		  c.fillStyle = "rgba(0, 0, 0, 0.2)";
-	      c.fillRect(0, 0, canvas.width, canvas.height);
-		  
-		  for(var i=0; i<particleNum ; i++){
-          new Particle();
-		  }
-		  
-		  for(var i in particles){
-		  particles[i].draw();
-		  }
-		   }, 30);
- 
-};
-
- </script>
-
-<script src="logic.js"></script>
 </body>
 </html>
