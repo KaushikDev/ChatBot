@@ -52,9 +52,23 @@ margin-top:20px;
   </div>
 
   <div class="mdl-card__menu">
-    <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+    <button id="show-dialog" class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
       <i class="material-icons">share</i>
     </button>
+	  <!-- modal popup code begins-->
+	  <dialog class="mdl-dialog">
+    <h4 class="mdl-dialog__title">Allow data collection?</h4>
+    <div class="mdl-dialog__content">
+      <p>
+        Allowing us to collect data will let us get you the information you want faster.
+      </p>
+    </div>
+    <div class="mdl-dialog__actions">
+      <button type="button" class="mdl-button">Agree</button>
+      <button type="button" class="mdl-button close">Disagree</button>
+    </div>
+  </dialog>
+	  <!-- modal popup code ends-->
   </div>
 </div>
 
@@ -82,4 +96,17 @@ margin-top:20px;
 </div>
 </div>
 </body>
+<script>
+    var dialog = document.querySelector('dialog');
+    var showDialogButton = document.querySelector('#show-dialog');
+    if (! dialog.showModal) {
+      dialogPolyfill.registerDialog(dialog);
+    }
+    showDialogButton.addEventListener('click', function() {
+      dialog.showModal();
+    });
+    dialog.querySelector('.close').addEventListener('click', function() {
+      dialog.close();
+    });
+</script>	
 </html>
