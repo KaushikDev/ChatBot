@@ -16,10 +16,8 @@ const signinGoogle = document.getElementById("googleAuth");
 const signOut = document.getElementById("signout");
 	
  //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++	
-	function() {
-		initApp();
-		}
-//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+	initApp();
+ //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
  	if(signinGoogle){
 		 googleAuth.addEventListener('click', e=>{
 			firebase.auth().signInWithPopup(new firebase.auth.GoogleAuthProvider()).then(function(result) {	 
