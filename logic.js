@@ -14,7 +14,10 @@ $("document").ready(function(){
 
 const signinGoogle = document.getElementById("googleAuth");
 const signout = document.getElementById("signout");
- 
+   
+window.onload = function() {
+initApp();
+}
  //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
  	if(signinGoogle){
 		 googleAuth.addEventListener('click', e=>{
@@ -66,8 +69,6 @@ const signout = document.getElementById("signout");
     }	
 			  
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-      window.onload = function() {
-      initApp();
-    }
+ 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++	    
 });
