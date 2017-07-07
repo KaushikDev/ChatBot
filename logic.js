@@ -1,5 +1,6 @@
-
- var config = {
+<script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
+ 
+var config = {
     apiKey: "AIzaSyC60GkqCP5HaPh151Eo4VIMadpYu6e7LV0",
     authDomain: "chatthemup.firebaseapp.com",
     databaseURL: "https://chatthemup.firebaseio.com",
