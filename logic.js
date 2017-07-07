@@ -1,4 +1,3 @@
-
 var config = {
     apiKey: "AIzaSyC60GkqCP5HaPh151Eo4VIMadpYu6e7LV0",
     authDomain: "chatthemup.firebaseapp.com",
@@ -14,9 +13,28 @@ $("document").ready(function(){
 
 const signinGoogle = document.getElementById("googleAuth");
 const signOut = document.getElementById("signout");
+const sendMsg = document.getElementById("send");
+const messageBox = document.getElementById("chatBox");
+const displayNAME = document.getElementById("dipslayName");
+const storageRef = firebase.storage().ref();
+
+
 	
  //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++	
 	initApp();
+ //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+ //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+ //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+ //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
  //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
  	if(signinGoogle){
 		 googleAuth.addEventListener('click', e=>{
@@ -58,6 +76,51 @@ const signOut = document.getElementById("signout");
     firebase.auth().onAuthStateChanged(function(user){
 	  if(user){
 	  window.location = "/ChatBot/main.html";
+	  
+	  $("document").ready(function(){
+				
+			var currentUser  = firebase.auth().currentUser;
+			var name  = currentUser.displayName;
+			var photoUrl = currentUser.photoURL ;
+			
+			
+			console.log("Current user's name is : "+name);
+			console.log("Current user's photoUrl is : "+photoUrl);
+	        
+			displayNAME.innerHTML = "Hi "+name;
+			
+    //+++++++++++Retrieving Msgs++++++++++++++++++++++++++++++++
+				var i=1;	
+				var firebaseRetrieveRef = firebase.database().ref().child(name+uid+"/MessageBoard");
+				firebaseRetrieveRef.on("child_added", snap =>{
+				var retrievedMsg = snap.val();
+				console.log("retrieved msgs is : "+retrievedMsg);
+				$("#taskList").append("<li id='list"+i+"'><div style='width:100%'><img src='"+photoUrl+"'style='width:10px;height:10px;border-radius:5px;'/><label>"+name+"</label></div><div style='width:100%'><p>"+retrievedMsg+"</p></div></li>");
+				i++;
+	//+++++++++++Storing Msgs++++++++++++++++++++++++++++++++
+		$("#send").on("click", function(){
+			 var newMessage=messageBox.value;
+			  if(newMessage==""){
+			  alert("Empty Message doesn't make any sense, does it?? ");
+			  }
+			  else{
+			  var firebaseStoreRef = firebase.database().ref().child(name+uid+"/MessageBoard");
+			 firebaseStoreRef.push().set(newMessage);
+              messageBox.value="";
+			  }
+			});
+	//+++++++++++Clearing/deleting all tasks++++++++++++++++++++++++
+		$("#clear").on("click", function(){
+			  var firebaseDeleteRef  = firebase.database().ref().child(name+uid+"/MessageBoard");
+			  firebaseDeleteRef.remove();
+			  $( ".scrolls" ).empty();
+			  });
+    //+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+	//+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+	//+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+	//+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+	//+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+	  });
                 }
 		else
 		{
@@ -69,4 +132,3 @@ const signOut = document.getElementById("signout");
 			  
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
  });
-//===============================================================================================
