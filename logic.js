@@ -97,6 +97,7 @@ const storageRef = firebase.storage().ref();
 				console.log("retrieved msgs is : "+retrievedMsg);
 				$("#taskList").append("<li id='list"+i+"'><div style='width:100%'><img src='"+photoUrl+"'style='width:10px;height:10px;border-radius:5px;'/><label>"+name+"</label></div><div style='width:100%'><p>"+retrievedMsg+"</p></div></li>");
 				i++;
+					});
 	//+++++++++++Storing Msgs++++++++++++++++++++++++++++++++
 		$("#send").on("click", function(){
 			 var newMessage=messageBox.value;
