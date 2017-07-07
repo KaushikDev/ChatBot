@@ -65,6 +65,14 @@ width: 100%;
 height: auto;
 overflow-y: auto;
 }
+
+#displayName{
+color:white;
+font-style:bold;
+font-size:20px;
+
+
+}
 </style>
 <!-- This section is for Main Form-->
 
@@ -76,6 +84,7 @@ overflow-y: auto;
 <button class="btn btn-lg" id="clear" ><i class="fa fa-trash" style="font-size:30px;"></i></button>
 </div>
 <div class="col-xs-4">
+<label id="displayName">somebody</label>
 </div>
 <div class="col-xs-4">
 <button class="btn btn-lg" id="signout"><i class="fa fa-power-off" style="font-size:30px;"></i></button>
@@ -84,9 +93,9 @@ overflow-y: auto;
 </header>
 
 <section>
-<div id="content" class="row text-center scrolls">
+<div id="content" class="row text-center">
 <div class="col-xs-12">
-
+<ol id="messageList" class="scrolls"></ol>
 </div>
 </div>
 </section>
