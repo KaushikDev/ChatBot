@@ -44,7 +44,7 @@ const signout = document.getElementById("signout");
 		  
 			 promise = firebase.auth().signOut().then(function(){
 				if(confirm("Do you wish to leave?")){
-				 window.location.href = "/ChatBot/index.html";
+				 window.location = "/ChatBot/index.html";
 			 }	
 					 });
 		      promise.catch(e => 
@@ -52,15 +52,22 @@ const signout = document.getElementById("signout");
 			});
 		 }
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-	firebase.auth().onAuthStateChanged(function(user){
+    function initApp(){
+    firebase.auth().onAuthStateChanged(function(user){
 	  if(user){
-	  window.location.href = "/ChatBot/main.html";
+	  window.location = "/ChatBot/main.html";
                 }
 		else
 		{
 		console.log(user+" is not logged in");
 		}
 		
-		});		  
+		});
+    }	
+			  
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+      window.onload = function() {
+      initApp();
+    }
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++	    
 });
