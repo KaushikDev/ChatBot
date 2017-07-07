@@ -1,5 +1,4 @@
-<script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
- 
+
 var config = {
     apiKey: "AIzaSyC60GkqCP5HaPh151Eo4VIMadpYu6e7LV0",
     authDomain: "chatthemup.firebaseapp.com",
@@ -10,16 +9,17 @@ var config = {
   };
   firebase.initializeApp(config);
 
-
+//===============================================================================================
 $("document").ready(function(){
 
 const signinGoogle = document.getElementById("googleAuth");
-const signout = document.getElementById("signout");
-   
-window.onload = function() {
-initApp();
-}
- //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+const signOut = document.getElementById("signout");
+	
+ //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++	
+	function() {
+		initApp();
+		}
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
  	if(signinGoogle){
 		 googleAuth.addEventListener('click', e=>{
 			firebase.auth().signInWithPopup(new firebase.auth.GoogleAuthProvider()).then(function(result) {	 
@@ -43,7 +43,7 @@ initApp();
 		
 		}
  //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
- 		if(signout){
+ 		if(signOut){
              signout.addEventListener('click', e=>{
 		  
 			 promise = firebase.auth().signOut().then(function(){
@@ -70,6 +70,5 @@ initApp();
     }	
 			  
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
- 
-//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++	    
-});
+ });
+//===============================================================================================
