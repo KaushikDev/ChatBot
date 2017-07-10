@@ -49,7 +49,7 @@ const storageRef = firebase.storage().ref();
 		  
 			 promise = firebase.auth().signOut().then(function(){
 				if(confirm(name+", do you wish to leave?")){
-				 window.location = "ChatBot/index.html";
+				 window.location = "/index.html";
 			 }	
 					 });
 		      promise.catch(e => 
@@ -61,7 +61,7 @@ const storageRef = firebase.storage().ref();
     firebase.auth().onAuthStateChanged(function(user){
 	   
 	  if(user){
-	  window.location = "ChatBot/main.html";
+	  window.location = "/main.html";
 	 
 	  $("document").ready(function(){
 				
