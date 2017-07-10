@@ -74,15 +74,18 @@ const storageRef = firebase.storage().ref();
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     function initApp(){
     firebase.auth().onAuthStateChanged(function(user){
-	    console.log("the user is onAuthStateChange : "+user);
-	    console.log("the user id is onAuthStateChange : "+user.uid);
-	    console.log("the user name is onAuthStateChange : "+user.name);
+	    console.log("the user is onAuthStateChange and before main : "+user);
+	    console.log("the user id is onAuthStateChange and before main : "+user.uid);
+	    console.log("the user name is onAuthStateChange and before main : "+user.name);
 	  if(user){
 	  window.location = "/ChatBot/main.html";
 	  
 	  $("document").ready(function(){
 				
 			var currentUser  = firebase.auth().currentUser;
+		    		console.log("the user is onAuthStateChange and before main : "+user);
+				console.log("the user id is onAuthStateChange and before main : "+user.uid);
+	   		 	console.log("the user name is onAuthStateChange and before main : "+user.name);
 			var name  = currentUser.displayName;
 			var photoUrl = currentUser.photoURL ;
 			
