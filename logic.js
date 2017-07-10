@@ -9,7 +9,7 @@ var config = {
   firebase.initializeApp(config);
 
 //===============================================================================================
-//$("document").ready(function(){
+$("document").ready(function(){
 
 const signinGoogle = document.getElementById("googleAuth");
 const signOut = document.getElementById("signout");
@@ -119,4 +119,4 @@ var photoUrl;
     }	
 			  
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-// });
+ });
