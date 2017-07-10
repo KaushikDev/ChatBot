@@ -17,6 +17,10 @@ const sendMsg = document.getElementById("send");
 const messageBox = document.getElementById("chatBox");
 const displayNAME = document.getElementById("dipslayName");
 const storageRef = firebase.storage().ref();
+	
+var currentUser;
+var name;
+var photoUrl;
 
  //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++	
 	initApp();
@@ -65,10 +69,9 @@ const storageRef = firebase.storage().ref();
 	 
 	  $("document").ready(function(){
 				
-			var currentUser  = firebase.auth().currentUser;
-		        
-			var name  = currentUser.displayName;
-			var photoUrl = currentUser.photoURL ;
+			currentUser  = firebase.auth().currentUser;
+		        name  = currentUser.displayName;
+			photoUrl = currentUser.photoURL ;
 		  
 			console.log("Current user's name is : "+name);
 			console.log("Current user's photoUrl is : "+photoUrl);
