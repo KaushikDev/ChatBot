@@ -18,23 +18,8 @@ const messageBox = document.getElementById("chatBox");
 const displayNAME = document.getElementById("dipslayName");
 const storageRef = firebase.storage().ref();
 
-
-	
  //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++	
 	initApp();
- //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
- //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
- //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
- //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
- //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
- //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
- //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
- //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
- //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
  //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
  	if(signinGoogle){
 		 googleAuth.addEventListener('click', e=>{
@@ -74,24 +59,19 @@ const storageRef = firebase.storage().ref();
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     function initApp(){
     firebase.auth().onAuthStateChanged(function(user){
-	    console.log("the user is onAuthStateChange and before main : "+user);
-	    console.log("the user id is onAuthStateChange and before main : "+user.uid);
-	    console.log("the user name is onAuthStateChange and before main : "+user.name);
+	    console.log("The user name onAuthStateChange and before main : " + user.displayName);
 	  if(user){
 	  window.location = "/ChatBot/main.html";
-	  
+	  console.log("The user name onAuthStateChange and after main and before authCurrentUser : " + user.displayName);
 	  $("document").ready(function(){
 				
 			var currentUser  = firebase.auth().currentUser;
-		    		console.log("the user is onAuthStateChange and before main : "+user);
-				console.log("the user id is onAuthStateChange and before main : "+user.uid);
-	   		 	console.log("the user name is onAuthStateChange and before main : "+user.name);
+		        console.log("The user name onAuthStateChange and after main and after authCurrentUser : " + user.displayName);
 			var name  = currentUser.displayName;
 			var photoUrl = currentUser.photoURL ;
-			
-			
-			console.log("Current user's name is : "+name);
-			console.log("Current user's photoUrl is : "+photoUrl);
+		
+			//console.log("Current user's name is : "+name);
+			//console.log("Current user's photoUrl is : "+photoUrl);
 	        
 			displayNAME.innerHTML = "Hi "+name;
 			
@@ -123,10 +103,7 @@ const storageRef = firebase.storage().ref();
 			  $( ".scrolls" ).empty();
 			  });
     //+++++++++++++++++++++++++++++++++++++++++++++++++++++++
-	//+++++++++++++++++++++++++++++++++++++++++++++++++++++++
-	//+++++++++++++++++++++++++++++++++++++++++++++++++++++++
-	//+++++++++++++++++++++++++++++++++++++++++++++++++++++++
-	//+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+	
 	  });
                 }
 		else
