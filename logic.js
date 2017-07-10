@@ -49,15 +49,16 @@ var photoUrl;
 		}
  //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
  		if(signOut){
-             signout.addEventListener('click', e=>{
-		  
+          signout.addEventListener('click', e=>{
+		   
+		  if(confirm("Do you wish to leave?")){
 			 promise = firebase.auth().signOut().then(function(){
-				if(confirm("Do you wish to leave?")){
-				 window.location = "index.html";
+			 window.location = "index.html";
+			 });
+			 promise.catch(e => 
+	         console.log(e.message))
 			 }	
-					 });
-		      promise.catch(e => 
-	                console.log(e.message))
+			
 			});
 		 }
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
