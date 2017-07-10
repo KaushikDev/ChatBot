@@ -65,11 +65,12 @@ const storageRef = firebase.storage().ref();
 	  console.log("The user name onAuthStateChange and after main and before authCurrentUser : " + user.displayName);
 	  $("document").ready(function(){
 				
-			var currentUser  = firebase.auth().currentUser;
+			//var currentUser  = firebase.auth().currentUser;
 		        console.log("The user name onAuthStateChange and after main and after authCurrentUser : " + user.displayName);
-			var name  = currentUser.displayName;
-			var photoUrl = currentUser.photoURL ;
-		
+			//var name  = currentUser.displayName;
+			//var photoUrl = currentUser.photoURL ;
+			var name  = user.displayName;
+			var photoUrl = user.photoURL ;
 			//console.log("Current user's name is : "+name);
 			//console.log("Current user's photoUrl is : "+photoUrl);
 	        
