@@ -74,6 +74,9 @@ const storageRef = firebase.storage().ref();
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     function initApp(){
     firebase.auth().onAuthStateChanged(function(user){
+	    console.log("the user is onAuthStateChange : "+user);
+	    console.log("the user id is onAuthStateChange : "+user.uid);
+	    console.log("the user name is onAuthStateChange : "+user.name);
 	  if(user){
 	  window.location = "/ChatBot/main.html";
 	  
