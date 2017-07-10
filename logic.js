@@ -1,6 +1,6 @@
 var config = {
     apiKey: "AIzaSyC60GkqCP5HaPh151Eo4VIMadpYu6e7LV0",
-    authDomain: "kaushikDev.github.io",
+    authDomain: "chatthemup.firebaseapp.com",
     databaseURL: "https://chatthemup.firebaseio.com",
     projectId: "chatthemup",
     storageBucket: "chatthemup.appspot.com",
@@ -48,8 +48,8 @@ const storageRef = firebase.storage().ref();
              signout.addEventListener('click', e=>{
 		  
 			 promise = firebase.auth().signOut().then(function(){
-				if(confirm("Do you wish to leave?")){
-				 window.location = "/ChatBot/index.html";
+				if(confirm(name+", do you wish to leave?")){
+				 window.location = "ChatBot/index.html";
 			 }	
 					 });
 		      promise.catch(e => 
@@ -61,18 +61,17 @@ const storageRef = firebase.storage().ref();
     firebase.auth().onAuthStateChanged(function(user){
 	   
 	  if(user){
-	  window.location = "/ChatBot/main.html";
-	  console.log("The user name onAuthStateChange and after main and before authCurrentUser : " + user.displayName);
+	  window.location = "ChatBot/main.html";
+	 
 	  $("document").ready(function(){
 				
-			//var currentUser  = firebase.auth().currentUser;
-		        console.log("The user name onAuthStateChange and after main and after authCurrentUser : " + user.displayName);
-			//var name  = currentUser.displayName;
-			//var photoUrl = currentUser.photoURL ;
-			var name  = user.displayName;
-			var photoUrl = user.photoURL ;
-			//console.log("Current user's name is : "+name);
-			//console.log("Current user's photoUrl is : "+photoUrl);
+			var currentUser  = firebase.auth().currentUser;
+		        
+			var name  = currentUser.displayName;
+			var photoUrl = currentUser.photoURL ;
+		  
+			console.log("Current user's name is : "+name);
+			console.log("Current user's photoUrl is : "+photoUrl);
 	        
 			displayNAME.innerHTML = "Hi "+name;
 			
