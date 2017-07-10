@@ -52,7 +52,7 @@ var photoUrl;
              signout.addEventListener('click', e=>{
 		  
 			 promise = firebase.auth().signOut().then(function(){
-				if(confirm(firebase.auth().currentUser.displayName+", do you wish to leave?")){
+				if(confirm("Do you wish to leave?")){
 				 window.location = "index.html";
 			 }	
 					 });
