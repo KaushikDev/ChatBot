@@ -1,6 +1,6 @@
 var config = {
     apiKey: "AIzaSyC60GkqCP5HaPh151Eo4VIMadpYu6e7LV0",
-    authDomain: "chatthemup.firebaseapp.com",
+    authDomain: "kaushikDev.github.io",
     databaseURL: "https://chatthemup.firebaseio.com",
     projectId: "chatthemup",
     storageBucket: "chatthemup.appspot.com",
