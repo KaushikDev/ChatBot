@@ -66,10 +66,10 @@ var photoUrl;
 	 
     function initApp(){
     firebase.auth().onAuthStateChanged(function(user){
-	   
+	     //window.location = "main.html";
 	  if(user){
 		   
-	  //window.location = "main.html";
+	
 	 
 	  $("document").ready(function(){
 				
