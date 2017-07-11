@@ -107,18 +107,8 @@ var photoUrl;
 			  });
 		  
 		  
-	 
-	  $("document").ready(function(){
-				
-			
-    //+++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	
-	  });
                 }
-		else
-		{
-		console.log(user+" is not logged in");
-		}
 		
 		});
     }	
