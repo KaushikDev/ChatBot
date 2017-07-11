@@ -63,12 +63,12 @@ var photoUrl;
 		 }
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	
-	var isLoggedIn=0;
+	 
     function initApp(){
     firebase.auth().onAuthStateChanged(function(user){
 	   
-	  if(user&&!isLoggedIn){
-		  isLoggedIn=1;
+	  if(user&& !window.location.localeCompare('main.html')){
+		   
 	  window.location = "main.html";
 	 
 	  $("document").ready(function(){
