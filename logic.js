@@ -66,9 +66,9 @@ var photoUrl;
 	 
     function initApp(){
     firebase.auth().onAuthStateChanged(function(user){
-	     window.location = "main.html";
+	     
 	  if(user){
-		   
+	window.location = "main.html";   
 	currentUser  = firebase.auth().currentUser;
 		        name  = currentUser.displayName;
 			photoUrl = currentUser.photoURL ;
@@ -106,10 +106,11 @@ var photoUrl;
 			  $( ".scrolls" ).empty();
 			  });
 		  
-		  
-	
                 }
-		
+		else
+			{
+			console.log(user+" is not logged in");
+			}
 		});
     }	
 			  
