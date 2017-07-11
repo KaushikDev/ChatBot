@@ -67,9 +67,9 @@ var photoUrl;
     function initApp(){
     firebase.auth().onAuthStateChanged(function(user){
 	   
-	  if(user&& !window.location.localeCompare('main.html')){
+	  if(user){
 		   
-	  window.location = "main.html";
+	  //window.location = "main.html";
 	 
 	  $("document").ready(function(){
 				
