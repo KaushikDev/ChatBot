@@ -69,11 +69,7 @@ var photoUrl;
 	     window.location = "main.html";
 	  if(user){
 		   
-	
-	 
-	  $("document").ready(function(){
-				
-			currentUser  = firebase.auth().currentUser;
+	currentUser  = firebase.auth().currentUser;
 		        name  = currentUser.displayName;
 			photoUrl = currentUser.photoURL ;
 		  
@@ -109,6 +105,12 @@ var photoUrl;
 			  firebaseDeleteRef.remove();
 			  $( ".scrolls" ).empty();
 			  });
+		  
+		  
+	 
+	  $("document").ready(function(){
+				
+			
     //+++++++++++++++++++++++++++++++++++++++++++++++++++++++
 	
 	  });
