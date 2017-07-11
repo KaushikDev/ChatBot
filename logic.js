@@ -62,10 +62,13 @@ var photoUrl;
 			});
 		 }
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+	
+	var isLoggedIn=0;
     function initApp(){
     firebase.auth().onAuthStateChanged(function(user){
 	   
-	  if(user){
+	  if(user&&!isLoggedIn){
+		  isLoggedIn=1;
 	  window.location = "main.html";
 	 
 	  $("document").ready(function(){
