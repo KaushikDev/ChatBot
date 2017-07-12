@@ -68,8 +68,8 @@ var photoUrl;
     firebase.auth().onAuthStateChanged(function(user){
 	     
 	  if(user){
-	window.location.href = "https://kaushikdev.github.io/ChatBot/main.html"; 
-		  return false;
+	window.location = "main.html"; 
+		
 	currentUser  = firebase.auth().currentUser;
 		        name  = currentUser.displayName;
 			photoUrl = currentUser.photoURL ;
