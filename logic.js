@@ -67,7 +67,7 @@ var photoUrl;
     function initApp(){
     firebase.auth().onAuthStateChanged(function(user){
 	
-	window.location = "ChatBot/main.html";     
+	window.location = "main.html";     
 	
 	    if(user){
 	
