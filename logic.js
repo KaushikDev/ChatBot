@@ -86,7 +86,7 @@ var photoUrl;
 			
     //+++++++++++Retrieving Msgs++++++++++++++++++++++++++++++++
 				var i=1;	
-				var firebaseRetrieveRef = firebase.database().ref().child(name+uid+"/MessageBoard");
+				var firebaseRetrieveRef = firebase.database().ref().child("MessageBoard/");
 				firebaseRetrieveRef.on("child_added", snap =>{
 				var retrievedMsg = snap.val();
 				console.log("retrieved msgs is : "+retrievedMsg);
@@ -100,14 +100,14 @@ var photoUrl;
 			  alert("Empty Message doesn't make any sense, does it?? ");
 			  }
 			  else{
-			  var firebaseStoreRef = firebase.database().ref().child(name+uid+"/MessageBoard");
+			  var firebaseStoreRef = firebase.database().ref().child("MessageBoard/");
 			 firebaseStoreRef.push().set(newMessage);
               messageBox.value="";
 			  }
 			});
 	//+++++++++++Clearing/deleting all tasks++++++++++++++++++++++++
 		$("#clear").on("click", function(){
-			  var firebaseDeleteRef  = firebase.database().ref().child(name+uid+"/MessageBoard");
+			  var firebaseDeleteRef  = firebase.database().ref().child("MessageBoard/");
 			  firebaseDeleteRef.remove();
 			  $( ".scrolls" ).empty();
 			  });
