@@ -81,7 +81,7 @@ var photoUrl;
 		    	uid = currentUser.uid;
 		  	console.log("Current user's name is : "+name);
 			console.log("Current user's photoUrl is : "+photoUrl);
-	      	displayNAME.innerHTML = "Hi, "+name;
+	      	//displayNAME.innerHTML = "Hi, "+name;
 		imageUSER.src = photoUrl;
 			
     //+++++++++++Retrieving Msgs++++++++++++++++++++++++++++++++
