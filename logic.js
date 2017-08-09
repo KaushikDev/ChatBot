@@ -18,6 +18,7 @@ const messageBox = document.getElementById("chatBox");
 const displayNAME = document.getElementById("displayName");
 const loginDiv = document.getElementById("login");
 const mainDiv = document.getElementById("main");
+const imageUSER = document.getElementById("imageUser");
 const storageRef = firebase.storage().ref();
 	
 var currentUser;
@@ -81,6 +82,7 @@ var photoUrl;
 		  	console.log("Current user's name is : "+name);
 			console.log("Current user's photoUrl is : "+photoUrl);
 	      	displayNAME.innerHTML = "Hi, "+name;
+		imageUSER.src = photoUrl;
 			
     //+++++++++++Retrieving Msgs++++++++++++++++++++++++++++++++
 				var i=1;	
