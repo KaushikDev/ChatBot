@@ -79,7 +79,7 @@ var photoUrl;
 			photoUrl = currentUser.photoURL ;
 		  	console.log("Current user's name is : "+name);
 			console.log("Current user's photoUrl is : "+photoUrl);
-	      	displayNAME.innerHTML = "Hi "+name;
+	      	displayNAME.innerHTML = "Hi, "+name;
 			
     //+++++++++++Retrieving Msgs++++++++++++++++++++++++++++++++
 				var i=1;	
