@@ -90,7 +90,7 @@ var photoUrl;
 				firebaseRetrieveRef.on("child_added", snap =>{
 				var retrievedMsg = snap.val();
 				console.log("retrieved msgs is : "+retrievedMsg);
-				$("#taskList").append("<li id='list"+i+"'><div style='width:100%'><img src='"+photoUrl+"'style='width:10px;height:10px;border-radius:5px;'/><label>"+name+"</label></div><div style='width:100%'><p>"+retrievedMsg+"</p></div></li>");
+				$("#messageList").append("<li id='list"+i+"'><div style='width:100%'><img src='"+photoUrl+"'style='width:10px;height:10px;border-radius:5px;'/><label>"+name+"</label></div><div style='width:100%'><p>"+retrievedMsg+"</p></div></li>");
 				i++;
 					});
 	//+++++++++++Storing Msgs++++++++++++++++++++++++++++++++
