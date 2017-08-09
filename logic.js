@@ -75,8 +75,9 @@ var photoUrl;
 			mainDiv.classList.remove('hidden');
 		
 	currentUser  = firebase.auth().currentUser;
-		    name  = currentUser.displayName;
+		  	name  = currentUser.displayName;
 			photoUrl = currentUser.photoURL ;
+		    	uid = currentUser.uid;
 		  	console.log("Current user's name is : "+name);
 			console.log("Current user's photoUrl is : "+photoUrl);
 	      	displayNAME.innerHTML = "Hi, "+name;
