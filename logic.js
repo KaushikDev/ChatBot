@@ -90,7 +90,7 @@ var photoUrl;
 				firebaseRetrieveRef.on("child_added", snap =>{
 				var retrievedMsg = snap.val();
 				console.log("retrieved msgs is : "+retrievedMsg);
-				$("#messageList").append("<li id='list"+i+"'><div style='width:100%'><img src='"+photoUrl+"'style='width:30px;height:30px;border-radius:15px;'/><label>"+name+"</label></div><div style='width:100%'><p>"+retrievedMsg+"</p></div></li>");
+				$("#messageList").append("<li id='list"+i+"'><div style='width:100%'><img src='"+photoUrl+"'style='width:30px;height:30px;border-radius:15px;'/><label>"+retrievedMsg.Sender+"</label></div><div style='width:100%'><p>"+retrievedMsg.Message+"</p></div></li>");
 				i++;
 					});
 	//+++++++++++Storing Msgs++++++++++++++++++++++++++++++++
@@ -100,9 +100,10 @@ var photoUrl;
 			  alert("Empty Message doesn't make any sense, does it?? ");
 			  }
 			  else{
-			  var firebaseStoreRef = firebase.database().ref().child("MessageBoard/");
-			 firebaseStoreRef.push().set(newMessage);
-              messageBox.value="";
+			  var firebaseStoreRef = firebase.database().ref().child("Messageboard/");
+			 //firebaseStoreRef.push().set(newMessage);
+			   firebaseStoreRef.push({Sender:name, Message:newMessage});	  
+			   messageBox.value="";
 			  }
 			});
 	//+++++++++++Clearing/deleting all tasks++++++++++++++++++++++++
