@@ -86,7 +86,7 @@ var photoUrl;
 			
     //+++++++++++Retrieving Msgs++++++++++++++++++++++++++++++++
 				var i=1;	
-				var firebaseRetrieveRef = firebase.database().ref().child();
+				var firebaseRetrieveRef = firebase.database().ref().child("Messageboard");
 				firebaseRetrieveRef.on("child_added", snap =>{
 				var retrievedMsg = snap.val();
 				console.log("retrieved msgs is : "+retrievedMsg);
