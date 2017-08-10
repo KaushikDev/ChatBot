@@ -90,7 +90,7 @@ var photoUrl;
 				firebaseRetrieveRef.on("child_added", snap =>{
 				var retrievedMsg = snap.val();
 				console.log("retrieved msgs is : "+retrievedMsg);
-				$("#messageList").append("<li id='list"+i+"'><div style='width:100%;background-color:silver' ><img src='"+retrievedMsg.Picture+"'style='width:30px;height:30px;border-radius:15px;'/><label>"+retrievedMsg.Sender+"</label></div><div style='width:100%;background-color:silver;margin-bottom:5px;'><p>"+retrievedMsg.Message+"</p></div></li>");
+				$("#messageList").append("<li id='list"+i+"'><div style='width:100%;' ><img src='"+retrievedMsg.Picture+"'style='width:30px;height:30px;border-radius:15px;'/><label>"+retrievedMsg.Sender+"</label></div><div style='width:100%;background-color:#ECF0F1;margin-bottom:5px;'><p>"+retrievedMsg.Message+"</p></div></li>");
 				i++;
 					});
 	//+++++++++++Storing Msgs++++++++++++++++++++++++++++++++
@@ -108,7 +108,7 @@ var photoUrl;
 			});
 	//+++++++++++Clearing/deleting all tasks++++++++++++++++++++++++
 		$("#clear").on("click", function(){
-			  var firebaseDeleteRef  = firebase.database().ref().child("MessageBoard");
+			  var firebaseDeleteRef  = firebase.database().ref().child("MessageBoard/");
 			  firebaseDeleteRef.remove();
 			  $( ".scrolls" ).empty();
 			  });
