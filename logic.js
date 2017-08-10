@@ -90,7 +90,7 @@ var photoUrl;
 				firebaseRetrieveRef.on("child_added", snap =>{
 				var retrievedMsg = snap.val();
 				console.log("retrieved msgs is : "+retrievedMsg);
-				$("#messageList").append("<li id='list"+i+"'><div style='width:100%'><img src='"+photoUrl+"'style='width:30px;height:30px;border-radius:15px;'/><label>"+retrievedMsg.Sender+"</label></div><div style='width:100%'><p>"+retrievedMsg.Message+"</p></div></li>");
+				$("#messageList").append("<li id='list"+i+"'><div style='width:100%'><img src='"+retrievedMsg.DP+"'style='width:30px;height:30px;border-radius:15px;'/><label>"+retrievedMsg.Sender+"</label></div><div style='width:100%'><p>"+retrievedMsg.Message+"</p></div></li>");
 				i++;
 					});
 	//+++++++++++Storing Msgs++++++++++++++++++++++++++++++++
@@ -102,7 +102,7 @@ var photoUrl;
 			  else{
 			  var firebaseStoreRef = firebase.database().ref().child("Messageboard/");
 			 //firebaseStoreRef.push().set(newMessage);
-			   firebaseStoreRef.push({Sender:name, Message:newMessage});	  
+			   firebaseStoreRef.push({Sender:name, Message:newMessage, DP:photoUrl});	  
 			   messageBox.value="";
 			  }
 			});
