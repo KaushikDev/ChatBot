@@ -40,19 +40,17 @@ height:10%;
 #clear{
 background-color:transparent;
 color:red;
-width:20%;
 height:10%;
-vertical-align: middle;
-position:absolute;
 }
 #signout{
 background-color:transparent;
 color:aqua;
-width:20%;
 height:10%;
-vertical-align: middle;
-position:absolute;
 }
+#faClear, #faPower{
+width:auto;
+height:auto;
+}	
 #chatBox{
 background-color:transparent;
 color:black;
@@ -82,8 +80,8 @@ color:white;
 font-size:10px;
 }
 #imageUser{
-width:60px;
-height:60px;	
+height:15%;	
+width:height;
 border-radius:50%;
 }
 	
@@ -146,13 +144,13 @@ border-radius:50%;
 	
 		<div id="header" class="row text-center">
 			<div class="col-xs-4">
-				<button class="btn btn-sm" id="clear" ><i class="fa fa-trash fa-2x" ></i></button>
+				<button class="btn btn-sm" id="clear" ><i class="fa fa-trash" id="faClear"></i></button>
 			</div>	
 			<div  class="col-xs-4">
 				<img id="imageUser" class="img-responsive">
 			</div>
 			<div class="col-xs-4">
-				<button class="btn btn-sm" id="signout"><i class="fa fa-power-off fa-2x" ></i></button>
+				<button class="btn btn-sm" id="signout"><i class="fa fa-power-off" id="faPower"></i></button>
 			</div>
 		</div>
 	
