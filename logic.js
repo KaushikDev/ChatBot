@@ -19,6 +19,10 @@ const displayNAME = document.getElementById("displayName");
 const loginDiv = document.getElementById("login");
 const mainDiv = document.getElementById("main");
 const imageUSER = document.getElementById("imageUser");
+const smiley = document.getElementById("smiley");
+const attach = document.getElementById("attach");
+const audio = document.getElementById("audio");
+const cam = document.getElementById("cam");
 const storageRef = firebase.storage().ref();
 	
 var currentUser;
@@ -66,8 +70,19 @@ var photoUrl;
 			});
 		 }
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-	
-	 
+	 	if(smiley){
+          signout.addEventListener('click', e=>{
+		   
+					
+			});
+		 }
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++	
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++	
+    function smileyPicker(){
+    
+    }	
     function initApp(){
     firebase.auth().onAuthStateChanged(function(user){
 	
